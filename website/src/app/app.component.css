@@ -1,0 +1,8 @@
+#menu li .main-menu:hover ~ .sub-menu-wrap{
+    display:block !important;
+}
+.main-menu .sf-js-enabled li:hover ul {
+    visibility: visible;
+    display: block !important;
+    transition: 0.3s;
+}

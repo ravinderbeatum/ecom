@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box-widget widget-module">
+            <div class="widget-head clearfix">
+                <span class="h-icon"><i class="fa fa-table"></i></span>
+                <h4>Product Categories</h4>
+                <ul class="widget-action-bar pull-right">
+                    <li>
+                        <div class="widget-switch">
+                            <a [routerLink]="['add_product_category']" class="btn btn-primary btn-sm">+ Add Product Category</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="widget-container">
+                <div class="table-responsive">
+            <table class="table table-striped table-hover matmix-dt">
+            <thead>
+            <tr>
+                <th>
+                     Category Name
+                </th>
+                <th class="tc-center">
+                    Status
+               </th>
+                <th class="tc-center">
+                     Action
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let category of categories_arr;let indexOfelement=index;">
+                <td>
+                     {{category.category_name}}
+                </td>
+                <td class="tc-center">
+                    <label (click)="change_status(indexOfelement, category.status, category.id)" [ngClass]="category.status ? 'label label-info' : 'label label-warning'">
+                        <span *ngIf="category.status;else other_content">Active</span>
+                        <ng-template #other_content>Inactive</ng-template>
+                    </label>
+                </td>
+                <td class="tc-center">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <a [routerLink]="[category.id]" class="btn btn-default btn-sm m-user-edit">Edit</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+            </div>
+        </div>
+    </div>
+
+</div>

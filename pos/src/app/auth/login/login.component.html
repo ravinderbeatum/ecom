@@ -1,0 +1,41 @@
+
+    <div class="page-container login-page">
+        <div class="login-branding">
+            <a href="index-2.html"><img src="assets/images/logo-large.png" alt="logo"></a>
+        </div>
+        <div class="login-container">
+            <img class="login-img-card" src="assets/images/avatar/jaman-01.jpg" alt="login thumb" />
+            <form class="form-signin" [formGroup]="login_form" (ngSubmit)="onSubmit()">
+                <input type="text" id="inputEmail" class="form-control" formControlName="email" placeholder="Email Address" required autofocus>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.email.errors.required">Email is required</div>
+                    <div class="error" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+                <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" class="switch-mini" /> Remember Me
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-block btn-signin" type="submit">Sign In</button>
+            </form>
+
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div>
+        <div class="create-account">
+            <a href="#">
+                Create Account
+            </a>
+        </div>
+
+        <div class="login-footer">
+            Crafted with<i class="fa fa-heart"></i>by <a href="#">westilian</a>
+
+        </div>
+
+    </div>

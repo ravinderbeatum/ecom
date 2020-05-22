@@ -1,0 +1,28 @@
+<section class="main-content">
+				
+    <div class="row">						
+        <div class="span12">								
+            <ul class="thumbnails listing-products" *ngIf="products_arr.length > 0">
+                <li class="span3" *ngFor="let product of products_arr">
+                    <div class="product-box">												
+                        <a routerLink="/product_detail/{{product.id}}"><img alt="" src="assets/themes/images/ladies/4.jpg"></a><br/>
+                        <a routerLink="/product_detail/{{product.id}}" class="title">{{product.product_name}}</a><br/>
+                        <a class="category">{{product.product_description}}</a>
+                        <p class="price">${{product.price}}</p>
+                    </div>
+                </li>
+            </ul>								
+            <hr>
+            <!-- <div class="pagination pagination-small pagination-centered">
+                <ul>
+                    <li><a href="#">Prev</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</section>

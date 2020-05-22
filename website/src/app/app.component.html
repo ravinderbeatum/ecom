@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+	</head>
+    <body>	
+        <app-header></app-header>
+        <div id="wrapper" class="container">
+            <section class="navbar main-menu">
+				<div class="navbar-inner main-menu">				
+					<a routerLink="products" class="logo pull-left"><img src="assets/themes/images/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul [ngClass]="['sf-js-enabled','sf-shadow']" *ngIf="categories_arr.length > 0">
+							<li *ngFor="let category of categories_arr">
+                                <a [ngClass]="['main-menu']" href="./products.html">{{category.category_name}}</a>					
+								<ul [ngClass]="['sub-menu-wrap']" *ngIf="category.products.length > 0">
+									<li *ngFor="let product of category.products">
+										<a routerLink="product_detail/{{product.id}}">{{product.product_name}}</a>
+									</li>																	
+								</ul>
+							</li>															
+						</ul>
+					</nav>
+				</div>
+			</section>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+        </div>
+    </body>
+</html>

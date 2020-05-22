@@ -1,0 +1,156 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "my-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/my-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/css/font-awesome.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/animate.css",
+              "src/assets/css/waves.css",
+              "src/assets/css/layout.css",
+              "src/assets/css/components.css",
+              "src/assets/css/plugins.css",
+              "src/assets/css/common-styles.css",
+              "src/assets/css/pages.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/matmix-iconfont.css",
+              "node_modules/ngx-toastr/toastr.css",
+            ],
+            "scripts": [
+              "src/assets/js/jquery-1.11.2.min.js",
+              "src/assets/js/jquery-migrate-1.2.1.min.js", 
+              "src/assets/js/jRespond.min.js",
+              "src/assets/js/bootstrap.min.js", 
+              "src/assets/js/nav-accordion.js", 
+              "src/assets/js/hoverintent.js", 
+              "src/assets/js/waves.js", 
+              "src/assets/js/switchery.js", 
+              "src/assets/js/jquery.loadmask.js", 
+              "src/assets/js/icheck.js", 
+              "src/assets/js/bootbox.js", 
+              "src/assets/js/animation.js", 
+              "src/assets/js/colorpicker.js", 
+              "src/assets/js/bootstrap-datepicker.js", 
+              "src/assets/js/floatlabels.js", 
+              "src/assets/js/smart-resize.js", 
+              "src/assets/js/layout.init.js", 
+              "src/assets/js/matmix.init.js", 
+              "src/assets/js/retina.min.js", 
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "my-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "my-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "my-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "my-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "my-app:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "my-app"
+}

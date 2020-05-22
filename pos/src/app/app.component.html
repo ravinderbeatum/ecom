@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.lab.westilian.com/matmix-admin/list-view/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 May 2020 07:00:31 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Components Mix Bootstarp 3 Admin Dashboard Template">
+    <meta name="author" content="Westilian">
+    <title>MatMix - A Components Mix Admin Dashboard Template</title>
+</head>
+
+<body>
+    <div [ngClass]="{'page-container list-menu-view': router.url !== '/login' && router.url !== '/'}">
+        <app-left-bar *ngIf="router.url !== '/login' && router.url !== '/'"></app-left-bar>
+        <div [ngClass]="{'page-content': router.url !== '/login' && router.url !== '/'}">
+            <app-header *ngIf="router.url !== '/login' && router.url !== '/'"></app-header>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</body>
+
+
+<!-- Mirrored from www.lab.westilian.com/matmix-admin/list-view/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 May 2020 07:00:34 GMT -->
+
+</html>
